@@ -11,8 +11,6 @@ app.use((req, res, next) => {
     next();
 });
 
-const TOKEN = 'MTU2NDY0MTAzMjY4NjI4MDc1NA.GtF7QZ.FYiDT76gFlUnSdNaI_vQs3EPKBAOGcFCpJGT7Q';
-
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -78,4 +76,4 @@ app.listen(3000, () => {
     console.log('🚀 السيرفر شغال ويفحص على البورت: 3000');
 });
 
-client.login(TOKEN);
+client.login(process.env.TOKEN);
