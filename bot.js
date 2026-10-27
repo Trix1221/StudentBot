@@ -1,5 +1,6 @@
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const express = require('express');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
@@ -10,6 +11,9 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
+
+// السماح بعرض ملفات الواجهة (مثل index.html) عند فتح الرابط
+app.use(express.static(path.join(__dirname)));
 
 const client = new Client({
     intents: [
